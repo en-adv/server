@@ -98,6 +98,17 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+// Delete all SP entries
+router.delete('/', async (req, res) => {
+    try {
+        await SP.deleteMany({});
+        res.json({ message: "Semua data SP berhasil dihapus!" });
+    } catch (err) {
+        console.error("Error deleting all SP entries:", err);
+        res.status(500).json({ error: "Terjadi kesalahan saat menghapus semua data SP." });
+    }
+});
+
 // Search SP entries
 router.get('/search/:query', async (req, res) => {
     try {
