@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
 
         // --------- Logika lama ---------
         const { weight, type } = req.body;
-        const oneHourAgo = new Date(now.getTime() - 6 * 60 * 60 * 1000);
+        const oneHourAgo = new Date(now.getTime() - 23 * 60 * 60 * 1000);
         let vehicle = await Vehicle.findOne({ plateNumber }).sort({ date: -1 });
 
         if (vehicle) {
